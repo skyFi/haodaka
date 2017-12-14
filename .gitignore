@@ -1,0 +1,10 @@
+node_modules
+bower_components
+.DS_Store
+*.log
+.vscode/
+.idea/
+tmp/
+.tags
+.happypack/
+dist/

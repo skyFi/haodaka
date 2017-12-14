@@ -1,0 +1,68 @@
+{
+  "name": "haodaka",
+  "version": "1.2.8",
+  "description": "",
+  "main": "dist/app.js",
+  "scripts": {
+    "lint": "eslint --ignore-path .gitignore --fix .",
+    "precommit": "lint-staged",
+    "dev": "wepy build --watch",
+    "commitmsg": "commitlint -e $GIT_PARAMS",
+    "git:commit": "git add . && git cz",
+    "git:push": "git push",
+    "git:push:after-release": "git push --follow-tags origin master",
+    "release": "standard-version --commit-all",
+    "fly": "npm run git:commit && npm run git:push",
+    "fly:release": "git checkout master && git pull && yarn && npm run release && npm run git:push:after-release",
+    "build": "cross-env NODE_ENV=production wepy build --no-cache",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "commitizen": "^2.9.6",
+    "commitlint": "^5.2.5",
+    "cz-conventional-changelog": "^2.1.0",
+    "standard-changelog": "^1.0.6",
+    "standard-version": "^4.2.0",
+    "wepy": "^1.6.0",
+    "wepy-async-function": "^1.4.4",
+    "wepy-com-toast": "^1.0.2"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "cross-env": "^5.1.1",
+    "eslint": "^3.18.0",
+    "eslint-config-standard": "^7.1.0",
+    "eslint-friendly-formatter": "^2.0.7",
+    "eslint-plugin-html": "^2.0.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.0.0",
+    "wepy-compiler-babel": "^1.5.1",
+    "wepy-compiler-less": "^1.3.10",
+    "wepy-eslint": "^1.5.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add ."
+    ]
+  },
+  "standard-version": {
+    "scripts": {
+      "postbump": "git add ."
+    }
+  }
+}
