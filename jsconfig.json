@@ -1,0 +1,28 @@
+{
+  "include": [
+    "./src/**/*"
+  ],
+  "compilerOptions": {
+    "module": "es2015",
+    "target": "es5",
+    "sourceMap": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": [
+        "./*"
+      ],
+      "util": [ "lib/util.js" ],
+      "lib": [ "lib/*" ],
+      "mixins": [ "mixins/*" ],
+      "config": ["common/config.js"]
+    }
+  },
+
+  "exclude": [
+    "node_modules",
+    "bower_components",
+    "jspm_packages",
+    "tmp",
+    "temp"
+  ]
+}

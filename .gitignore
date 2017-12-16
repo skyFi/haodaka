@@ -60,6 +60,7 @@ typings/
 bower_components
 .DS_Store
 *.log
+*.log.*
 .vscode/
 .idea/
 tmp/

@@ -2,7 +2,7 @@ const path = require('path')
 var prod = process.env.NODE_ENV === 'production'
 
 module.exports = {
-  wpyExt: '.wpy',
+  wpyExt: '.vue',
   build: {
     web: {
       htmlTemplate: path.join('src', 'index.template.html'),
@@ -12,13 +12,18 @@ module.exports = {
   },
   resolve: {
     alias: {
-      counter: path.join(__dirname, 'src/components/counter'),
-      '@': path.join(__dirname, 'src')
+      '@': path.join(__dirname, 'src'),
+      util: path.join(__dirname, 'src/lib/util.js'),
+      lib: path.join(__dirname, 'src/lib'),
+      config: path.join(__dirname, 'src/common/config.js'),
+      mixins: path.join(__dirname, 'src/mixins')
     },
     modules: ['node_modules']
   },
   eslint: true,
   compilers: {
+    pug: {
+    },
     less: {
       compress: true
     },
