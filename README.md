@@ -1,5 +1,5 @@
-# haodaka
-Haodaka Wechat Application
+# weapp-wepy-starter
+Create Wechat Application base on wepy.
 
 # License
 
